@@ -1,0 +1,37 @@
+min_os_version: 1.3.8
+name: 公众号文章下载
+package: community.lazycat.app.wechat-article
+version: 2.3.6
+description: "一款 开源 & 免费 的公众号文章下载神器"
+homepage: https://github.com/wechat-article/wechat-article-exporter
+author: wechat-article
+application:
+  subdomain: wechat-article
+  background_task: true
+  public_path:
+    - /
+
+  upstreams:
+    - location: /
+      backend: http://wechat-article:3000/
+
+services:
+  wechat-article:
+    #  ghcr.io/wechat-article/wechat-article-exporter:v2.3.6
+    image: registry.lazycat.cloud/czyt/wechat-article/wechat-article-exporter:2bb82eeb72ff23e5
+    container_name: wechat-article
+    binds:
+      - /lzcapp/var/data:/app/.data
+
+locales:
+  zh:
+    name: "公众号文章下载"
+    description: "一款 开源 & 免费 的公众号文章下载神器"
+  en:
+    name: "公众号文章下载"
+    description: "An online tool for batch downloading WeChat official account articles"
+
+unsupported_platforms:
+  - ios
+  - android
+  - tvos
