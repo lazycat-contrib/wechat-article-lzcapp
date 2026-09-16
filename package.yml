@@ -1,5 +1,5 @@
 package: community.lazycat.app.wechat-article
-version: 2.3.6
+version: 2.3.21
 name: 公众号文章下载
 description: "一款 开源 & 免费 的公众号文章下载神器"
 min_os_version: "1.5.0"
